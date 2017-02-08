@@ -99,6 +99,18 @@ LOCAL_PRIVILEGED_MODULE := true
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := NubiaSettings
+LOCAL_MODULE_OWNER := nubia
+LOCAL_SRC_FILES := proprietary/priv-app/NubiaSettings/NubiaSettings.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := APPS
+LOCAL_DEX_PREOPT := false
+LOCAL_MODULE_SUFFIX := .apk
+LOCAL_PRIVILEGED_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := ims
 LOCAL_MODULE_OWNER := nubia
 LOCAL_SRC_FILES := proprietary/vendor/app/ims/ims.apk
@@ -129,14 +141,5 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := JAVA_LIBRARIES
 LOCAL_MODULE_SUFFIX := .jar
 include $(BUILD_PREBUILT)
-
-ifeq ($(LOCAL_PATH)/radio, $(wildcard $(LOCAL_PATH)/radio))
-
-RADIO_FILES := $(wildcard $(LOCAL_PATH)/radio/*)
-$(foreach f, $(notdir $(RADIO_FILES)), \
-    $(call add-radio-file,radio/$(f)))
-$(call add-radio-file,../../../device/nubia/nx529j/radio/filesmap)
-
-endif
 
 endif

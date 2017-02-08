@@ -1096,6 +1096,7 @@ PRODUCT_PACKAGES += \
     CNEService \
     com.qualcomm.location \
     qcrilmsgtunnel \
+    NubiaSettings \
     ims \
     qcnvitems \
     qcrilhook
